@@ -1,0 +1,203 @@
+///Problem 1
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int i,n,sum=0,p;
+    scanf("%d",&n);
+    int *arr=(int*)malloc(n*sizeof(int));
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+        sum=sum+arr[i];
+    }
+    printf("%d",sum);
+    return 0;
+}
+
+///Problem 2
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+
+void printalpha(int n)
+{
+    if(n==1)
+    return printf("one\n");
+    if(n==2)
+    return printf("two\n");
+    if(n==3)
+    return printf("three\n");
+    if(n==4)
+    return printf("four\n");
+    if(n==5)
+    return printf("five\n");
+    if(n==6)
+    return printf("six\n");
+    if(n==7)
+    return printf("seven\n");
+    if(n==8)
+    return printf("eight\n");
+    if(n==9)
+    return printf("nine\n");
+}
+int main() 
+{
+    int a, b;
+    scanf("%d\n%d", &a, &b);
+  	int i;
+    for(i=a;i<=b;i++)
+    {
+        if((i<=9)&&(i>=1))
+            printalpha(i);
+        else
+        {
+            if(i%2==0)
+            printf("even\n");
+            else 
+            printf("odd\n");
+        }
+    }
+
+    return 0;
+}
+
+///Problem 3
+#include <assert.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* readline();
+
+void printalpha(int n)
+{
+    if(n==1)
+    return printf("one\n");
+    if(n==2)
+    return printf("two\n");
+    if(n==3)
+    return printf("three\n");
+    if(n==4)
+    return printf("four\n");
+    if(n==5)
+    return printf("five\n");
+    if(n==6)
+    return printf("six\n");
+    if(n==7)
+    return printf("seven\n");
+    if(n==8)
+    return printf("eight\n");
+    if(n==9)
+    return printf("nine\n");
+}
+
+int main()
+{
+    char* n_endptr;
+    char* n_str = readline();
+    int n = strtol(n_str, &n_endptr, 10);
+
+    if (n_endptr == n_str || *n_endptr != '\0') { exit(EXIT_FAILURE); }
+
+    if((n<=9)&&(n>=1))
+            printalpha(n);
+        else
+        {
+            printf("Greater than 9");
+        }
+
+    return 0;
+}
+
+char* readline() {
+    size_t alloc_length = 1024;
+    size_t data_length = 0;
+    char* data = malloc(alloc_length);
+
+    while (true) {
+        char* cursor = data + data_length;
+        char* line = fgets(cursor, alloc_length - data_length, stdin);
+
+        if (!line) { break; }
+
+        data_length += strlen(cursor);
+
+        if (data_length < alloc_length - 1 || data[data_length - 1] == '\n') { break; }
+
+        size_t new_length = alloc_length << 1;
+        data = realloc(data, new_length);
+
+        if (!data) { break; }
+
+        alloc_length = new_length;
+    }
+
+    if (data[data_length - 1] == '\n') {
+        data[data_length - 1] = '\0';
+    }
+
+    data = realloc(data, data_length);
+
+    return data;
+}
+///Problem 4
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int num, *arr, i,temp;
+    scanf("%d", &num);
+    arr = (int*) malloc(num * sizeof(int));
+    for(i = 0; i < num; i++) {
+        scanf("%d", arr + i);
+    }
+
+        for(i=0;i<num/2;i++)
+        {
+            temp=arr[num-1-i];
+            arr[num-1-i]=arr[i];
+            arr[i]=temp;
+        }
+    for(i = 0; i < num; i++)
+        printf("%d ", *(arr + i));
+    return 0;
+}
+///Problem 5
+#include <stdio.h>
+
+int max(int a, int b)
+{
+    if(a>=b)
+    return a;
+    else {
+    return b;
+    }
+}
+int max_of_four(int a, int b, int c, int d)
+{
+    int p1 = max(a,b);
+    int p2 = max(c,d);
+    int p3 = max(p1,p2);
+    return p3;
+}
+
+int main() {
+    int a, b, c, d;
+    scanf("%d %d %d %d", &a, &b, &c, &d);
+    int ans = max_of_four(a, b, c, d);
+    printf("%d", ans);
+    
+    return 0;
+}

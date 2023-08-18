@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std ;
+
+
+
+int main() {
+    double gpa[30];
+    int numGpas = 0;
+    double sumGpas = 0.0;
+    double averageGpa = 0.0;
+     
+    int x;
+
+    do {
+        cout << "Enter the GPA: ";
+        cin >> gpa[numGpas];
+        sumGpas += gpa[numGpas];
+        numGpas++;
+
+        cout << "If you want to Calculate GPA average enter 0 If you want to countine enter 1  ";
+        cin >> x;
+    } while (x== 1);
+
+    
+        averageGpa = sumGpas / numGpas;
+        cout << "GPA Average: " << averageGpa ;
+    
+
+    return 0;
+}

@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   int inpt=0,i=0; printf("please enter the number of elemnts\n");scanf("%i",&inpt) ;
+   int arrRev[inpt+1]; // WE USED ON EXTRA ELEMENT FOR NULL TERMINATION
+
+
+    for(i=0;i<inpt;i++){
+           printf("\nplease enter the element no. %i... ",i+1 ) ;
+              scanf("%i",&arrRev[i]) ; } printf("\n");
+
+
+       printf("\nthe array as entered is [");
+      for(i=0;i<inpt;i++){
+      printf(" %i ",arrRev[i] ) ; }
+           printf("]");
+
+
+
+               printf("\n");
+               printf("\nthe reversed version is [");
+
+       for(i=inpt-1;i>=0;i--){ ;printf(" %i ",arrRev[i]); }
+
+               printf("]");  printf("\n");
+
+
+
+
+    return 0;
+}

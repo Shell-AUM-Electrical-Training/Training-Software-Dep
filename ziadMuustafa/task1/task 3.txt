@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int inpt =0 ; printf("please enter the number to check\n") ;
+
+    scanf("%i",&inpt) ;
+    switch(inpt){
+      case 1:
+       printf("its one") ;break ;
+     case 2:
+        printf("its two") ;break ;
+     case 3:
+        printf("its three") ;break ;
+     case 4:
+        printf("its four") ;break ;
+     case 5:
+        printf("its five") ;break ;
+     case 6:
+        printf("its six") ;break ;
+     case 7:
+        printf("its seven") ;break ;
+     case 8:
+        printf("its eight") ;break ;
+     case 9:
+        printf("its nine") ;break ;
+     default:
+        printf("its greater than 9") ;
+
+
+
+
+    }
+
+
+    return 0;
+}

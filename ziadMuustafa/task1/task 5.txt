@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+ int max_of_four(int a,int b,int c,int d) ;
+int main()
+{
+    int a,b,c,d ; 
+    printf("enter the element a\n") ;
+    scanf("%i",&a);
+    
+    printf("enter the element b\n") ;
+    scanf("%i",&b);
+
+    printf("enter the element c\n") ;
+    scanf("%i",&c);
+    
+    printf("enter the element d\n");
+    scanf("%i",&d);
+    
+     max_of_four(a,b,c,d) ;
+    return 0;
+}
+ int max_of_four(int a,int b,int c,int d) {
+      if(a>b){
+        if(a>c){
+            if(a>d){printf("a is the largest");}
+        }
+      }
+
+      else if(b>c){
+        if(b>d){if(a==b){printf("a and b the largest");}else {printf("b is the largest");} } else{printf("d is the largest");}
+      }
+
+
+             else if(c>d){
+              if(c==a){printf("c and a");} else if(c==b){printf("c and b ");} else{printf("c is the largest");}
+      }
+
+
+        else {printf("d is the largest");}
+ }
+
