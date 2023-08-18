@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int i,*ptr,n,sum=0;
+    scanf("%d",&n);    
+    ptr=(int*)malloc(n*sizeof(int));  //memory allocated using malloc    
+     for(i=0;i<n;++i)    
+    {    
+        scanf("%d",ptr+i);    
+        sum+=*(ptr+i);    
+    }    
+    printf("%d",sum);    
+    free(ptr);     
+    
+            
+    return 0;
+}
