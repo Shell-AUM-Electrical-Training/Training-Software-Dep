@@ -59,10 +59,10 @@
 
 ## ✍️ Tasks
      🕸 Task 1 {Hackerrank Problems on C-Programming Fundamentals}
-             ⌛ Deadline: 17.08.2023 (Thursday) [OUTDATED]
+             ❌ Deadline: 17.08.2023 (Thursday) [OUTDATED]
 
      🕸 Task 2 {Interface with Keypad and 7-segment, whenever I press on some number on the keypad the number is displayed on the 7-segment}
-             ⌛ Deadline: 18.08.2023 (Friday) [OUTDATED]
+             ❌ Deadline: 18.08.2023 (Friday) [OUTDATED]
 
      🕸 Task 3 {Research & Hardware Simulation}
              ⌛ Deadline: 24.08.2023 (Thursday)
