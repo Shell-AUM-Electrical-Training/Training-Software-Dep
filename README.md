@@ -65,4 +65,7 @@
              ❌ Deadline: 18.08.2023 (Friday) [OUTDATED]
 
      🕸 Task 3 {Research & Hardware Simulation}
-             ⌛ Deadline: 24.08.2023 (Thursday)
+             ❌ Deadline: 24.08.2023 (Thursday)
+
+     🕸 Task 4 {Car Security System}
+             ⌛ Deadline: 31.08.2023 (Thursday)
