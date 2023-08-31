@@ -1,0 +1,3 @@
+In this task proteus is having a problem with potentiometer and can't read it.
+so there is a file with tinkercad simulation for both servo and dc motor with the actual reading,
+with same code and same connection as in proteus but proteus is not reading the potentiometer.
