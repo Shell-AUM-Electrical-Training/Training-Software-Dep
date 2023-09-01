@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include <DC_Motor/dc_motor.h>
-#include <Stepper_Motor/stepper_motor.h>
 #include <Servo.h>
 #include <Keypad/keypad.h>
 #include <LiquidCrystal_I2C.h>
@@ -102,6 +101,7 @@ void loop() {
       lcd.print("User");
       lcd.setCursor(0,1);
       lcd.print("Authenticated :)");
+      delay(900);
       lcd.clear();
       lcd.setCursor(0,0);
 
