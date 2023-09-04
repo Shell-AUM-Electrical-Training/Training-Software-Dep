@@ -1,0 +1,9 @@
+https://www.tinkercad.com/things/578Eh6dKIkG?sharecode=sSadXbUhdj-roSop7aH5n7MTRK84wzZ9XQaB5R3Qhy4
+
+i have a problem with proteus with arduino lib so i used tincker card
+
+i want to appologize for being so late and I have a problem with the simulation as it does not display even though i tried to 
+make all the steps 
+
+Im taking my first steps in arduino programming so i need just more time
+
