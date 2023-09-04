@@ -1,0 +1,116 @@
+#include <Keypad.h>
+#include <LiquidCrystal.h>
+#include <string.h>
+#include <Servo.h>
+#define button A0
+#define en A1
+#define servoPot A2
+#define dcMotorSpeed A3
+#define right A4
+#define left A5
+int servo = 11;
+void checkPass();
+void dcDirection();
+int dcSpeed();
+void servoAngle();
+
+// Creates An Lcd Object. Parameters: (Rs, Enable, D4, D5, D6, D7)
+LiquidCrystal lcd(10, 9, 13, 12, 8, 7);
+
+const byte ROWS = 4;  //four rows
+const byte COLS = 3;  //three columns
+
+char keys[ROWS][COLS] = {
+  { '1', '2', '3' },
+  { '4', '5', '6' },
+  { '7', '8', '9' },
+  { '*', '0', '#' }
+};
+byte rowPins[ROWS] = { 0, 1, 2, 3 };  //connect to the row pinouts of the keypad
+byte colPins[COLS] = { 4, 5, 6 };     //connect to the column pinouts of the keypad
+
+//Create an object of keypad
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+Servo myservo;
+void setup() {
+  Serial.begin(9600);
+  // set up the LCD's number of columns and rows:
+  lcd.begin(16, 2);
+  // Print a message to the LCD.
+  lcd.print("Enter Password");
+  lcd.setCursor(0, 1);  //row 2
+  checkPass();
+  pinMode(button, INPUT_PULLUP);
+  pinMode(left, OUTPUT);
+  pinMode(right, OUTPUT);
+  pinMode(en, OUTPUT);
+  myservo.attach(servo);
+}
+void loop() {
+  lcd.clear();
+  int speed = dcSpeed();
+  dcDirection();
+  servoAngle();
+  delay(200);
+}
+void servoAngle() {
+  int reading = analogRead(servoPot);
+  int angle = map(reading, 0, 1023, 0, 180);
+  myservo.write(angle);
+  if (angle == 0) {
+    lcd.setCursor(0, 1);
+    lcd.print("Servo Motor OFF");
+  } else {
+    lcd.setCursor(0, 1);
+    lcd.print("Servo Motor ON");
+  }
+  delay(300);
+}
+int dcSpeed() {
+  int st = analogRead(dcMotorSpeed) / 4;
+  analogWrite(en, st);
+  return st;
+}
+void dcDirection() {
+  if (digitalRead(button)) {
+    lcd.setCursor(0, 0);
+    lcd.print("DC Motor CW");
+    digitalWrite(right, HIGH);
+    digitalWrite(left, LOW);
+  } else {
+    lcd.setCursor(0, 0);
+    lcd.print("DC Motor CCW");
+    digitalWrite(right, LOW);
+    digitalWrite(left, HIGH);
+  }
+  if (dcSpeed() == 0) {
+    lcd.clear();
+    lcd.print("DC Motor OFF");
+  }
+  delay(200);
+}
+void checkPass() {
+  char pass[4], password[] = "123";
+  while (true) {
+    int flag = 0;
+    while (flag < 3) {
+      char key = keypad.getKey();  // Read the key
+      if (key) {
+        lcd.print('*');
+        pass[flag++] = key;
+      }
+    }
+    pass[3] = '\0';
+
+    if (strcmp(pass, password) == 0) {
+      lcd.clear();
+      lcd.print("Welcome!");
+      lcd.setCursor(0, 1);
+      break;
+    } else {
+      lcd.clear();
+      lcd.print("Enter Password");
+      lcd.setCursor(0, 1);
+    }
+  }
+}
